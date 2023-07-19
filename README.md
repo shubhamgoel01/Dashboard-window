@@ -1,4 +1,4 @@
-# Django-Dashboard - Linux
+# Django-Dashboard - window
 
 git clone https://github.com/shubhamgoel01/Django-Dashboard.git
 python -m venv env
