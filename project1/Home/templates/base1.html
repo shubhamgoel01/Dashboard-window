@@ -34,14 +34,22 @@
   </head>
   <body>
 
-  {% if messages %}
-  {% for message in messages %}
-  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-    <strong> {{ message }} </strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  {% endfor %}
-  {% endif %}
+    <nav class="navbar d-flex align-items-start flex-column">
+      <b><h4 class="text-center" style="color: #333; font-size: 14px;">The page will auto-refresh, no need to refresh multiple times. If you encounter an error page due to a network issue, simply refresh it.</h4></b>
+    </nav>
+    
+    
+
+
+
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong> {{ message }} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+      {% endif %}
       
    
       <!-- Optional JavaScript; choose one of the two! -->    

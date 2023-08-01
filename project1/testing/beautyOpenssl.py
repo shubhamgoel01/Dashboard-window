@@ -9,11 +9,13 @@ def update():
         print("The news are as follow :-\n")
         
         soup=BeautifulSoup(resp.text,'html.parser')        
-        # l=soup.find("div",{"class":"blog-index"})
-        l=soup.find("article")
-        m = l.findAll("table")[1]
-        n = m.findAll("td")[8]        
-        print(n.text)
+        l=soup.find("div",{"class":"blog-index"})
+        # l=soup.find("article")
+        m = l.findAll("table")[0]
+        n = m.findAll("td")[6]        
+        o = m.findAll("tr")[2]        
+        p = o.findAll("td")[2]       
+        print(p.text)
         # m = l.findAll("tr")[5]
         # print(m.text)           
     else:
