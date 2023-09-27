@@ -5,10 +5,10 @@ import json
 
 # request_url = 'http://nagios.beta-wspbx.com/nagios/cgi-bin/statusjson.cgi?query=service&hostname=beta-161&servicedescription=Freeswitch'
 # request_url = 'http://nagios.beta-wspbx.com/nagios/cgi-bin/statusjson.cgi?query=service&hostname=10.30.48.178&servicedescription=Streams'
-request_url = 'http://nagios.beta-wspbx.com/nagios/cgi-bin/statusjson.cgi?query=service&hostname=10.30.48.32&servicedescription=GatewayNode'
+request_url = 'http://nagios.beta-wspbx.com/nagios/cgi-bin/statusjson.cgi?query=service&hostname=10.30.48.32&servicedescription=IPTables'
 
 username = 'nagiosadmin'
-password = 'nagios@beta'
+password = 'Nagios@beta'
 session = requests.Session()
 request = session.get(request_url, auth=HTTPBasicAuth(username,password), verify=False)
 # data_json = json.loads(response.read())
