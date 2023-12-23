@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base1.html' %}
 
 {% block title %}WEB{% endblock title %}
 
@@ -54,24 +54,3 @@ class ser_run defined in base template {% endcomment %}
 
 {% endblock body %}
 
-
-
-# backup of above fun -focus on </br> after endfor
-{% comment %} <tbody>
-  {% for opp in finalpass %}
-  <tr>
-    <th scope="row">{{opp.0.0}}</th>
-      {% for i in opp %}  
-          <td>
-            {% if i.2 == 'Running'%}
-            <div class="ser_run">{{ i.1 }} </div>
-
-            {% else %}
-            <div class="ser_nrun">{{ i.1 }} </div>
-            {% endif %} 
-          </td>
-
-      {% endfor %}</br>
-    </tr>  
-    {% endfor %}        
-</tbody> {% endcomment %}

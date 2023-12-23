@@ -1,0 +1,37 @@
+{% extends 'base1.html' %}
+
+{% block title %}IPTables{% endblock title %}
+{% block body %}
+
+{{ url_info_list_run }} </br></br>
+{{ url_info_list_nrun }}
+{% comment %} Hi Shubham - web services list
+class ser_run defined in base template {% endcomment %}
+<div class='container'>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">IPTables Status</th>
+         </tr>
+      </thead>
+      <tbody>
+        {% for opp in url_info_list %}
+        <tr>
+          <th scope="row">         
+    
+            {% if opp.test_result == 'Running' %}
+            <div class="ser_run">{{ opp.ip1 }} is Running</div>
+
+            {% else %}
+            <div class="ser_nrun">{{ opp.ip1 }} is Not Running</div>
+            {% endif %} 
+            </th>
+  
+           
+          </tr>  
+          {% endfor %}        
+      </tbody>
+    </table>
+  </div>
+
+{% endblock body %}
