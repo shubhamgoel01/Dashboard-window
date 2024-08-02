@@ -12,7 +12,8 @@ def update_openssl(url):
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Define the version string pattern
-        version_pattern = re.compile(r'OpenSSL\s+3\.0\.\d+')
+        version_pattern = re.compile(r'3\.0\.\d+')
+        # version_pattern = re.compile(r'OpenSSL\s+3\.0\.\d+')
 
         # Find all occurrences of the version string pattern in the page
         occurrences = soup.body(text=version_pattern.search)
@@ -27,6 +28,6 @@ def update_openssl(url):
         return f"Failed to retrieve the webpage. Status code: {response.status_code}"
 
 # Example usage:
-url = "https://www.openssl.org/"
+url = "https://endoflife.date/openssl"
 result_openssl = update_openssl(url)
 print(result_openssl)
