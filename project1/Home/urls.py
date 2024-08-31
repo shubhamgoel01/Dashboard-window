@@ -11,12 +11,14 @@ urlpatterns = [
     path("web", views.web, name='web' ),
     path("pbx", views.pbx, name='pbx' ),
     path("output", views.output, name='output' ),
+    path("img", views.images, name='img' ),
     path("checkupdate", views.checkupdate, name='checkupdate' ),
     path("checkupdate/add/", views.addinNewUpdateInfo, name='addnewupdateinfo' ),    
     path("checkupdate/add/addrecord/", views.addrecordinNewUpdateInfo, name='addrecordnewupdateinfo' ),    
     path('delete/<int:id>', views.deleteinNewUpdateInfo, name='deleteinNewUpdateInfo'),
     path('checkupdate/update/<int:id>', views.updateinNewUpdateInfo, name='updateinNewUpdateInfo'),   
     path('checkupdate/update/updaterecord/<int:id>', views.updaterecordNewUpdateInfo, name='updaterecordinNewUpdateInfo'),
+    path("loading", views.loading, name='loading'),  # Add this line
     # ---------------sample 
   
 ]

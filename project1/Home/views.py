@@ -4,7 +4,7 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 from datetime import date, datetime
-from Home.models import WebBeta1, WebBeta2, WebBeta3, WebBeta4, NewUpdateInfo, RRFImage, IPTable
+from Home.models import WebBeta1, WebBeta2, WebBeta3, WebBeta4, NewUpdateInfo, RRFImage, IPTable, All_IMG
 from django.contrib import messages
 import requests
 from requests.auth import HTTPBasicAuth
@@ -72,7 +72,13 @@ def index(request):
     'data' : data
     }  
     return render(request,'index.html', context)
-    # return render(request,'index.html',context)
+
+def images(request):
+    img = All_IMG.objects.all()
+    context = {
+    'img' : img
+    }  
+    return render(request,'All_IMG.html', context)
 
 def output(request):
    msg1=request.GET.get('buildno')
@@ -86,7 +92,7 @@ def output(request):
 # --------------------------------------New ---------------
 def checkupdate(request):  
     result_httpd = update_httpd("https://httpd.apache.org/download.cgi")
-    result_openssl = update_openssl("https://www.openssl.org/")
+    result_openssl = update_openssl("https://endoflife.date/openssl")
     result_php = update_php("https://www.php.net/")
     result_Hadoop = update_Hadoop("https://hadoop.apache.org/release.html")
     result_ZooKeeper = update_ZooKeeper("https://zookeeper.apache.org/releases.html")
@@ -311,7 +317,8 @@ def pbx(request):
     }     
     return render(request, 'pbx.html',context)
  
-
+def loading(request):
+    return render(request, 'loading.html')
 
 def web(request):
     print("+++++++++++++++++WEB REQUEST+++++++++++++++++++++++++++++++++++++++++++++++++++++")
@@ -478,7 +485,7 @@ def update_openssl(url):
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Define the version string pattern
-        version_pattern = re.compile(r'OpenSSL\s+3\.0\.\d+')
+        version_pattern = re.compile(r'3\.0\.\d+')
 
         # Find all occurrences of the version string pattern in the page
         occurrences = soup.body(text=version_pattern.search)
